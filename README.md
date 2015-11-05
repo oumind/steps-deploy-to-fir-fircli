@@ -1,6 +1,6 @@
-# Deploy to iTunes Connect with Shenzhen
+# Deploy to fir.im with fir-cli
 
-The new Deploy to iTunes Connect with Shenzhen step.
+The new Deploy to fir.im with fir-cli step.
 
 Can be run directly with the [bitrise CLI](https://github.com/bitrise-io/bitrise),
 just `git clone` this repository, `cd` into it's folder in your Terminal/Command Line

@@ -1,31 +1,16 @@
-title: "Deploy to iTunes Connect (with Shenzhen)"
-summary: "Deploy to iTunes Connect (with Shenzhen)"
+title: "Deploy to fir.im (with fir-cli)"
+summary: "Deploy to fir.im (with fir-cli)"
 description: |-
-  Deploy to iTunes Connect, using the
-  fantastic [Shenzhen](https://github.com/nomad/shenzhen)
+  Deploy to fir.im , using the
+  fantastic [fir-cli](https://github.com/FIRHQ/fir-cli)
   Ruby gem.
-
-  **If this is the very first build** of the app
-  you try to deploy to iTunes Connect then you might want to upload the first
-  build manually to make sure it fulfills the initial iTunes Connect submission
-  verification process.
-
-  **Be advised** that this
-  step uses a well maintained, open source tool which
-  uses *undocumented and unsupported APIs* (because the current
-  iTunes Connect platform does not have a documented and supported API)
-  to perform the deployment.
-  This means that when the API changes
-  **this step might fail until the tool is updated**.
 
   ## Setup guide and notes
 
-  * Register an app on iTunes Connect, on the **My Apps** page. Click on the *plus sign* and select the **New iOS App** option. This requires an **admin** account.
-  * Requires an **App Store iOS distibution Provisioning Profile**
-  * Every build which you want to push to iTunes Connect have to have a **unique build and version number** pair (*increment either or both before a new deploy to iTunes Connect*)
-website: https://github.com/bitrise-io/steps-deploy-to-itunesconnect-shenzhen
-source_code_url: https://github.com/bitrise-io/steps-deploy-to-itunesconnect-shenzhen
-support_url: https://github.com/bitrise-io/steps-deploy-to-itunesconnect-shenzhen/issues
+  *  http://fir.im/
+website: https://github.com/oumind/steps-deploy-to-fir-fircli
+source_code_url: https://github.com/oumind/steps-deploy-to-fir-fircli
+support_url: https://github.com/oumind/steps-deploy-to-fir-fircli/issues
 host_os_tags:
   - "osx-10.10"
 project_type_tags: []
@@ -42,49 +27,16 @@ inputs:
       title: "IPA path"
       summary: ""
       description: |-
-        Path of the IPA file, to be deployed to iTunes Connect
+        Path of the IPA file, to be deployed to fir.im
       is_required: true
       is_expand: true
       is_dont_change_value: false
-  - itunescon_user: ""
+  - token: "$FIR_USER_TOKEN"
     opts:
-      title: "iTunes Connect: User Apple ID (email)"
+      title: "fir.im: API token"
       summary: ""
       description: |-
-        Login Apple ID (email) for the iTunes Connect site.
-
-        *Make sure that this email is verified,
-        your Apple ID cannot be used until you verify it
-        on Apple's website!*
-      is_required: true
-      is_expand: true
-      is_dont_change_value: false
-  - password: ""
-    opts:
-      title: "iTunes Connect: Password"
-      summary: ""
-      description: |-
-        Password for the specified User Apple ID.
-
-        **Note:** if your password
-        contains special characters
-        and you experience problems, please
-        consider changing your password
-        to something with only
-        alphanumeric characters.
-      is_required: true
-      is_expand: true
-      is_dont_change_value: false
-  - app_id: ""
-    opts:
-      title: "iTunes Connect: App Apple ID"
-      summary: ""
-      description: |-
-        The App's *Apple ID* on iTunes Connect.
-
-        Open the **App's page on iTunes Connect**,
-        click on **More**, click on *About this app*,
-        copy the *Apple ID*'s value from here (numeric, like 846814360)
+        API token for the specified User fir.im.
       is_required: true
       is_expand: true
       is_dont_change_value: false

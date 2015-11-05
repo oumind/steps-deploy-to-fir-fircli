@@ -41,18 +41,8 @@ if [ -z "${ipa_path}" ] ; then
 	exit 1
 fi
 
-if [ -z "${password}" ] ; then
-	finalcleanup "Input: \`password\` not provided!"
-	exit 1
-fi
-
-if [ -z "${itunescon_user}" ] ; then
-	finalcleanup "Input: \`itunescon_user\` not provided!"
-	exit 1
-fi
-
-if [ -z "${app_id}" ] ; then
-	finalcleanup "Input: \`app_id\` not provided!"
+if [ -z "${token}" ] ; then
+	finalcleanup "Input: \`token\` not provided!"
 	exit 1
 fi
 
@@ -66,26 +56,10 @@ fail_if_cmd_error "Failed to setup the required tools!"
 
 write_section_to_formatted_output "# Deploy"
 
-write_section_to_formatted_output "**Note:** if your password
-contains special characters
-and you experience problems, please
-consider changing your password
-to something with only
-alphanumeric characters."
-
-write_section_to_formatted_output "**Be advised** that this
-step uses a well maintained, open source tool which
-uses *undocumented and unsupported APIs* (because the current
-iTunes Connect platform does not have a documented and supported API)
-to perform the deployment.
-This means that when the API changes
-**this step might fail until the tool is updated**."
-
-ipa distribute:itunesconnect -f "${ipa_path}" -a "${itunescon_user}" -p "${password}" -i "${app_id}" --upload --verbose
+fir p "${ipa_path}" -T "${token}" --verbose
 fail_if_cmd_error "Deploy failed!"
 
 write_section_to_formatted_output "# Success"
-echo_string_to_formatted_output "* The app (.ipa) was successfully uploaded to [iTunes Connect](https://itunesconnect.apple.com), you should see it in the *Prerelease* section on the app's iTunes Connect page!"
-echo_string_to_formatted_output "* **Don't forget to enable** the **TestFlight Beta Testing** switch on iTunes Connect (on the *Prerelease* tab of the app) if this is a new version of the app!"
+echo_string_to_formatted_output "* The app (.ipa) was successfully uploaded to [fir.im](http://fir.im/apps)"
 
 exit 0

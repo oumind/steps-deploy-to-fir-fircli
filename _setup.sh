@@ -4,11 +4,11 @@ command_exists () {
 	command -v "$1" >/dev/null 2>&1 ;
 }
 
-if command_exists ipa ; then
-	echo " (i) shenzhen already installed"
+if command_exists fir ; then
+	echo " (i) fir-cli already installed"
 	exit 0
 else
-	echo " (i) shenzhen NOT yet installed, attempting install..."
+	echo " (i) fir.im NOT yet installed, attempting install..."
 fi
 
 STARTTIME=$(date +%s)
@@ -16,7 +16,7 @@ STARTTIME=$(date +%s)
 which_ruby="$(which ruby)"
 osx_system_ruby_pth="/usr/bin/ruby"
 brew_ruby_pth="/usr/local/bin/ruby"
-gem_name="shenzhen"
+gem_name="fir"
 
 echo
 echo " (i) Which ruby: $which_ruby"
