@@ -16,7 +16,7 @@ STARTTIME=$(date +%s)
 which_ruby="$(which ruby)"
 osx_system_ruby_pth="/usr/bin/ruby"
 brew_ruby_pth="/usr/local/bin/ruby"
-gem_name="fir"
+gem_name="fir-cli"
 
 echo
 echo " (i) Which ruby: $which_ruby"
