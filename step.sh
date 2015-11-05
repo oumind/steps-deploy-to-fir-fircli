@@ -19,11 +19,6 @@ function finalcleanup {
     write_section_to_formatted_output "${fail_msg}"
   fi
   write_section_to_formatted_output "*See the logs for more information*"
-
-  write_section_to_formatted_output "**If this is the very first build**
-of the app you try to deploy to iTunes Connect then you might want to upload the first
-build manually to make sure it fulfills the initial iTunes Connect submission
-verification process."
 }
 
 function CLEANUP_ON_ERROR_FN {
@@ -56,7 +51,8 @@ fail_if_cmd_error "Failed to setup the required tools!"
 
 write_section_to_formatted_output "# Deploy"
 
-fir p "${ipa_path}" -T "${token}" --verbose
+fir publish "${ipa_path}" --token "${token}" --verbose
+
 fail_if_cmd_error "Deploy failed!"
 
 write_section_to_formatted_output "# Success"
